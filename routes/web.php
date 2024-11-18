@@ -83,3 +83,19 @@ Route::get('/chalenge2', function () {
     ]];
     return view('pages.challenge2', $mahasiswa);
 });
+
+Route::get('/chalenge3', function () {
+    $mahasiswa = [
+        "namaprodi" => [
+            "Informatika",
+            "Elektro",
+            "Industri"
+        ],
+    ];
+    return view("pages.challenge3", $mahasiswa);
+});
+
+Route::get('/create', function () {
+    return view('pages.create');
+});
+Route::post('/simpan', [testController::class, 'create']);

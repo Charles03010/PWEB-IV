@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengguna;
 use Illuminate\Http\Request;
 
 class testController extends Controller
@@ -25,4 +26,11 @@ class testController extends Controller
             return response()->json(['status' => 'error', 'message' => 'Password is incorrect']);
         }
     }
+    public function create(Request $request){
+        $data = $request->only(['nama', 'email', 'password']);
+
+        Pengguna::insert($data);
+        return "Berhasil ditambahkan";
+    }
+
 }
