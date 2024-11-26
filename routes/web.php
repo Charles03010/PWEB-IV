@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\testController;
+use App\Models\Buku;
+use App\Models\Penulis;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -99,3 +101,16 @@ Route::get('/create', function () {
     return view('pages.create');
 });
 Route::post('/simpan', [testController::class, 'create']);
+
+Route::get('/buku',function(){
+    $data = [
+        'buku'=> Buku::all()
+    ];
+    return view('pages.buku',$data);
+});
+Route::get('/penulis/{id}',function(Penulis $id){
+    $data = [
+        'penulis'=> $id->buku
+    ];
+    return view('pages.penulis',$data);
+});
