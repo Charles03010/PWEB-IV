@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\loginRequest;
 use App\Models\Pengguna;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,10 @@ class testController extends Controller
 
         Pengguna::insert($data);
         return "Berhasil ditambahkan";
+    }
+    public function validated(loginRequest $request){
+        $request->validated();
+        return "Berhasil";
     }
 
 }

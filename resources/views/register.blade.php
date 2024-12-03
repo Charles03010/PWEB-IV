@@ -27,7 +27,7 @@
                       <p class="text-center small">Enter your username & password to login</p>
                     </div>
   
-                    <form action="/valid" class="row g-3 needs-validation" novalidate>
+                    <form action="/validregis" class="row g-3 needs-validation" novalidate>
   
                       <div class="col-12">
                         <label for="email" class="form-label">Email</label>
@@ -44,6 +44,15 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" id="password" required>
                         @error('password')
+                              <p>{{ $message }}</p>
+                          @enderror
+                        <div class="invalid-feedback">Please enter your password!</div>
+                      </div>
+
+                      <div class="col-12">
+                        <label for="password" class="form-label">Password Confirm</label>
+                        <input type="password" name="password_confirm" class="form-control" id="password" required>
+                        @error('password_confirm')
                               <p>{{ $message }}</p>
                           @enderror
                         <div class="invalid-feedback">Please enter your password!</div>
